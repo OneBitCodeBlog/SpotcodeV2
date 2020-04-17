@@ -10,7 +10,7 @@ class Api::V1::DashboardController < ApplicationController
   private
 
   def load_recent_heard
-    @recent_albums = current_user.recently_heards.order('created_at DESC').limit(4).map(&:album)
+    @recent_albums = current_user.recently_heards.order('created_at DESC').limit(8).map(&:album).uniq
   end
 
   def load_recommendations
